@@ -20,7 +20,7 @@ app.use(cors())
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Hellos World!')
+  res.send('Welcome to budget app')
 })
 
 //Listen
