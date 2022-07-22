@@ -1,8 +1,8 @@
 const express = require('express')
 const transactions = express.Router()
-const transactionsArray = require('../Module/Budget.Data')
+const transactionsArray = require('../Module/Transactions.Data')
 
-
+//index
 transactions.get('/', (req, res) => {
   res.json(transactionsArray)
 })
@@ -10,17 +10,18 @@ transactions.get('/', (req, res) => {
 //Show
 transactions.get('/:id', (req, res) => {
   const id = Number(req.params.id)
-  if (transactions[id]) {
-    res.json(transactions[id])
+
+  if (transactionsArray[id]) {
+    res.json(transactionsArray[id])
   } else {
-    res.status(404).redirect('Oops! Wrong id.')
+    res.status(404).send('Oops! Wrong id.')
   }
 })
 
 //Create
 transactions.get('/', (req, res) => {
-     transactionsArray.push(req.body)
-     res.json(transactionsArray[transactionsArray.length - 1])
+  transactionsArray.push(req.body)
+  res.json(transactionsArray[transactionsArray.length - 1])
 })
 
 //Update
@@ -31,6 +32,7 @@ transactions.put('/:id', (req, res) => {
   res.send(transactionsArray[id])
 })
 
+//delete
 transactions.delete('/:id', (req, res) => {
   const { id } = req.params
   let transactionsDelete = transactionsArray.splice(id, 1)
