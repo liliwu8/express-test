@@ -28,7 +28,7 @@ transactions.get('/', (req, res) => {
 transactions.put('/:id', (req, res) => {
   const { id } = req.params
   const newData = req.body
-  transactions[id] = newData
+  transactionsArray[id] = newData
   res.send(transactionsArray[id])
 })
 
