@@ -32,7 +32,7 @@ transactions.put('/:id', (req, res) => {
   res.send(transactionsArray[id])
 })
 
-//delete
+//Delete
 transactions.delete('/:id', (req, res) => {
   const { id } = req.params
   let transactionsDelete = transactionsArray.splice(id, 1)

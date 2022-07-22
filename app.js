@@ -6,9 +6,6 @@ const transactionsController = require('./Controllers/Transactions.Data.Controll
 
 const cors = require('cors')
 
-
-
-
 // this allows any app/site from anywhere access your API. This is a great way to start to get things up and running. Later, add restrictions, as needed.
 app.use(cors())
 //___________________
@@ -18,12 +15,10 @@ app.use(cors())
 app.use(express.json()) // returns middleware that only parses JSON
 
 
-
 // Routes
 app.get('/', (req, res) => {
   res.send('Welcome to budget app!')
 })
-
 
 app.use((req, res, next) => {
   console.log('This code runs for every request', req.method, req.url)
